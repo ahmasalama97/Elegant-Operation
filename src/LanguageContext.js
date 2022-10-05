@@ -3,7 +3,25 @@ import React, { createContext, useEffect, useState } from "react";
 const LanguageContext = createContext({});
 
 const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState("arabic");
+  const [language, setLanguage] = useState("english");
+
+  useEffect(() => {
+    const language = localStorage.getItem("language");
+    if (language) {
+      setLanguage(language);
+    }
+  }, [language]);
+
+  const changeLanguage = () => {
+    if (language === "arabic") {
+      setLanguage("english");
+      localStorage.setItem("language", "english");
+    } else {
+      setLanguage("arabic");
+
+      localStorage.setItem("language", "arabic");
+    }
+  };
 
   let lang = {};
   if (language === "english") {
@@ -250,6 +268,7 @@ const LanguageProvider = ({ children }) => {
         lang,
         language,
         setLanguage,
+        changeLanguage,
       }}
     >
       {children}

@@ -27,11 +27,16 @@ const Header = (props) => {
         name: lang.lang.nav.contact,
         links: "/contact-us",
       },
+      {
+        id: 5,
+        name: lang.language !== "english" ? "English" : "العربية",
+        links: "/",
+      },
     ],
   };
   return (
     <LanguageConsumer>
-      {({ language }) => (
+      {({ language, changeLanguage }) => (
         <header
           id="site-header"
           style={{ direction: language === "english" ? "ltr" : "rtl" }}
@@ -70,6 +75,11 @@ const Header = (props) => {
                           ? "menu-item menu-item-has-children current-menu-item"
                           : "menu-item menu-item-has-children"
                       }
+                      onClick={() => {
+                        if (data.id === 5) {
+                          changeLanguage();
+                        }
+                      }}
                       key={data.id}
                     >
                       <Link

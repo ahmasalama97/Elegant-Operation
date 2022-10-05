@@ -1,44 +1,44 @@
 import React from "react";
 
-const Overview = () => {
+const Overview = ({ lang }) => {
   let state = {
     tab: [
       {
         id: 1,
-        title: "Our Company",
-        text: "A company specialized in managing and operating hotels, providing catering services and organizing tourist trips Umrah, Hajj and quarantine programs",
+        title: lang.lang.pageHeaders.ourCompany,
+        text: lang.lang.about.companyDesc,
         item: [],
       },
       {
         id: 2,
-        title: "Our Vision",
-        text: "Serving the pilgrims from all over the world and its connection with the vision of our wise leadership. Our energies and capabilities to serve them, whose priority is to spare no effort in making every effort. Providing everything that meets the needs of God's guests and fulfills their aspirations.",
+        title: lang.lang.pageHeaders.ourVision,
+        text: lang.lang.about.visionDesc,
         item: [],
       },
       {
         id: 3,
         text: "",
-        title: "Our Services",
+        title: lang.lang.pageHeaders.ourServices,
         item: [
           {
             idx: 1,
-            content: "Tourist Visas.",
+            content: lang.lang.general.visas,
           },
           {
             idx: 2,
-            content: "Hotel Reservations of All Levels",
+            content: lang.lang.general.hotelReservation,
           },
           {
             idx: 3,
-            content: "Means of Transportation for Internal Transportation",
+            content: lang.lang.general.transportations,
           },
           {
             idx: 4,
-            content: "Catering Services for Hotels",
+            content: lang.lang.general.hotelCatering,
           },
           {
             idx: 5,
-            content: "Institutional Quarantine Services",
+            content: lang.lang.general.institutionalQuarantine,
           },
         ],
       },
@@ -52,7 +52,7 @@ const Overview = () => {
         data-mobilemargin="0 0 0 0"
       >
         <div className="themesflat-headings style-1 clearfix">
-          <h2 className="heading">OVERVIEW</h2>
+          <h2 className="heading">{lang.lang.pageHeaders.overview}</h2>
           <div className="sep has-width w80 accent-bg margin-top-11 clearfix" />
         </div>
         <div
@@ -73,10 +73,22 @@ const Overview = () => {
                 >
                   <div className="inner">
                     <span className="item">
-                      <span className="icon">
+                      <span
+                        className="icon"
+                        style={{
+                          right: lang.language === "english" ? "" : 0,
+                        }}
+                      >
                         <i className="fa fa-check-square" />
                       </span>
-                      <span className="text">{index.content}</span>
+                      <span
+                        className="text"
+                        style={{
+                          paddingRight: 20,
+                        }}
+                      >
+                        {index.content}
+                      </span>
                     </span>
                   </div>
                 </div>

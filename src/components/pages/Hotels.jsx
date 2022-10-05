@@ -1,16 +1,18 @@
-import React from "react";
+import { useContext } from "react";
+import { LanguageConsumer, LanguageContext } from "../../LanguageContext";
 import BannerTitle from "../layouts/about/banner/BannerTitle";
 import HotelCard from "../layouts/general/HotelCard";
 import { Footer, BottomBar, TopBar, Header } from "../layouts/general/index";
-import Slider from "../layouts/hotels/Slider";
 
 const AllHotels = () => {
+  const lang = useContext(LanguageContext);
+
   let state = {
     headers: [
       {
         id: 1,
         logoweb: "assets/img/logo-small.png",
-        names: "Hotels",
+        names: lang.lang.nav.hotels,
       },
     ],
     banners: [
@@ -19,341 +21,322 @@ const AllHotels = () => {
         links: "/hotels",
         titlelink: "",
         border: "",
-        name: "Hotels",
-        heading: "Hotels",
+        name: lang.lang.nav.hotels,
+        heading: lang.lang.nav.hotels,
       },
     ],
   };
 
   return (
-    <div className="header-fixed page no-sidebar header-style-2 topbar-style-1 menu-has-search">
-      <div id="wrapper" className="animsition">
-        <div id="page" className="clearfix">
-          <TopBar />
-          {state.headers.map((data, idx) => (
-            <Header data={data} key={idx} />
-          ))}
-          {state.banners.map((data) => (
-            <BannerTitle key={data.id} data={data} />
-          ))}
+    <LanguageConsumer>
+      {({ language }) => (
+        <div
+          className="header-fixed page no-sidebar header-style-2 topbar-style-1 menu-has-search"
+          style={{ direction: language === "english" ? "ltr" : "rtl" }}
+        >
+          <div id="wrapper" className="animsition">
+            <div id="page" className="clearfix">
+              <TopBar />
+              {state.headers.map((data, idx) => (
+                <Header data={data} key={idx} />
+              ))}
+              {state.banners.map((data) => (
+                <BannerTitle key={data.id} data={data} />
+              ))}
 
-          <div className="row-iconbox bg-row-2">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <div
-                    className="themesflat-spacer clearfix"
-                    data-desktop={60}
-                    data-mobile={60}
-                    data-smobile={60}
-                  />
-                  <div className="themesflat-headings style-1 clearfix">
-                    <h2 className="heading">OUR HOTELS</h2>
-                    <div className="sep has-width w80 accent-bg margin-top-11 clearfix" />
-                  </div>
-                  <div className="row-iconbox bg-row-2">
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-md-4">
-                          <HotelCard
-                            img={"assets/img/hotels/hotel-1.jpeg"}
-                            name={"TAJ AL-RAQI"}
-                            subName={"TAJ AL-KHALIL PREVIOUSLY"}
-                            rating={
-                              <div className="list-star">
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                              </div>
-                            }
-                            nights={4}
-                            meals={3}
-                            travel={"One Way"}
-                            pcr={2}
-                          />
-                        </div>
-                        <div className="col-md-4">
-                          <HotelCard
-                            img={"assets/img/hotels/hotel-2.jpeg"}
-                            name={"AL-HIJRA AL-RAQI"}
-                            subName={"AFWAJ AL-TAWBAH 11 PREVIOUSLY"}
-                            rating={
-                              <div className="list-star">
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                              </div>
-                            }
-                            nights={4}
-                            meals={3}
-                            travel={"One Way"}
-                            pcr={2}
-                          />
-                        </div>
-                        <div className="col-md-4">
-                          <HotelCard
-                            img={"assets/img/hotels/hotel-3.jpeg"}
-                            name={"AL-SAFWA AL-RAQI"}
-                            subName={"SAFWAT AL-TAJ PREVIOUSLY"}
-                            rating={
-                              <div className="list-star">
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                              </div>
-                            }
-                            nights={4}
-                            meals={3}
-                            travel={"One Way"}
-                            pcr={2}
-                          />
-                        </div>
-                        <div className="col-md-4">
-                          <HotelCard
-                            img={"assets/img/hotels/hotel-4.jpeg"}
-                            name={"MALAK AL-RAQI"}
-                            subName={"MALAK AL-TAQWA PREVIOUSLY"}
-                            rating={
-                              <div className="list-star">
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                              </div>
-                            }
-                            nights={4}
-                            meals={3}
-                            travel={"One Way"}
-                            pcr={2}
-                          />
-                        </div>
-                        <div className="col-md-4">
-                          <HotelCard
-                            img={"assets/img/hotels/hotel-5.jpeg"}
-                            name={"KADY AL-RAQI"}
-                            subName={"ZOHOUR AL-TAJ PREVIOUSLY"}
-                            rating={
-                              <div className="list-star">
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                              </div>
-                            }
-                            nights={4}
-                            meals={3}
-                            travel={"One Way"}
-                            pcr={2}
-                          />
-                        </div>
-                        {/* /.themesflat-testimonials */}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    className="themesflat-spacer clearfix"
-                    data-desktop={80}
-                    data-mobile={60}
-                    data-smobile={60}
-                  />
-                  <div className="themesflat-headings style-1 clearfix">
-                    <h2 className="heading">ALLOTMENT HOTELS</h2>
-                    <div className="sep has-width w80 accent-bg margin-top-11 clearfix" />
-                  </div>
-                  <div className="row-iconbox bg-row-2">
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-md-4">
-                          <HotelCard
-                            img={"assets/img/hotels/hotel-1.jpeg"}
-                            name={"AZKA AL-SAFA"}
-                            rating={
-                              <div className="list-star">
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                              </div>
-                            }
-                            nights={4}
-                            meals={3}
-                            travel={"One Way"}
-                            pcr={2}
-                          />
-                        </div>
-                        <div className="col-md-4">
-                          <HotelCard
-                            img={"assets/img/hotels/hotel-1.jpeg"}
-                            name={"AZKA AL-SAFA"}
-                            rating={
-                              <div className="list-star">
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                                <i className="ion-star" />
-                              </div>
-                            }
-                            nights={4}
-                            meals={3}
-                            travel={"One Way"}
-                            pcr={2}
-                          />
-                          {/* <div className="themesflat-testimonials style-2 align-center clearfix">
-                            <div className="testimonial-item">
-                              <div className="inner">
-                                <div>
-                                  <img
-                                    src="assets/img/hotels/hotel-2.jpeg"
-                                    style={{ width: "100%", height: 270 }}
-                                    alt="altimage"
-                                  />
-                                </div>
-                                <blockquote className="text">
-                                  <div className="name-pos clearfix">
-                                    <h6 className="name">AL-HIJRA AL-RAQI</h6>
-                                    <span className="position">
-                                      AFWAJ AL-TAWBAH 11 PREVIOUSLY
-                                    </span>
-                                  </div>
-                                  <div className="list-star">
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                  </div>
-                                </blockquote>
-                              </div>
-                            </div>
-                          </div> */}
-                        </div>
-                        <div className="col-md-4">
-                          <div className="themesflat-testimonials style-2 align-center clearfix">
-                            <div className="testimonial-item">
-                              <div className="inner">
-                                <div>
-                                  <img
-                                    src="assets/img/hotels/hotel-3.jpeg"
-                                    style={{ width: "100%", height: 270 }}
-                                    alt="altimage"
-                                  />
-                                </div>
-                                <blockquote className="text">
-                                  <div className="name-pos clearfix">
-                                    <h6 className="name">AL-SAFWA AL-RAQI</h6>
-                                    <span className="position">
-                                      SAFWAT AL-TAJ PREVIOUSLY
-                                    </span>
-                                  </div>
-                                  <div className="list-star">
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                  </div>
-                                </blockquote>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="themesflat-testimonials style-2 align-center clearfix">
-                            <div className="testimonial-item">
-                              <div className="inner">
-                                <div>
-                                  <img
-                                    src="assets/img/hotels/hotel-4.jpeg"
-                                    style={{ width: "100%", height: 270 }}
-                                    alt="altimage"
-                                  />
-                                </div>
-                                <blockquote className="text">
-                                  <div className="name-pos clearfix">
-                                    <h6 className="name">MALAK AL-RAQI</h6>
-                                    <span className="position">
-                                      MALAK AL-TAQWA PREVIOUSLY
-                                    </span>
-                                  </div>
-                                  <div className="list-star">
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                  </div>
-                                </blockquote>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-md-4">
-                          <div className="themesflat-testimonials style-2 align-center clearfix">
-                            <div className="testimonial-item">
-                              <div className="inner">
-                                <div>
-                                  <img
-                                    src="assets/img/hotels/hotel-5.jpeg"
-                                    style={{ width: "100%", height: 270 }}
-                                    alt="altimage"
-                                  />
-                                </div>
-                                <blockquote className="text">
-                                  <div className="name-pos clearfix">
-                                    <h6 className="name">KADY AL-RAQI</h6>
-                                    <span className="position">
-                                      ZOHOUR AL-TAJ PREVIOUSLY
-                                    </span>
-                                  </div>
-                                  <div className="list-star">
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                    <i className="ion-star" />
-                                  </div>
-                                </blockquote>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* /.themesflat-testimonials */}
-                      </div>
-                    </div>
-                  </div>
+              <div className="row-iconbox bg-row-2">
+                <div className="container">
                   <div className="row">
                     <div className="col-md-12">
+                      <div
+                        className="themesflat-spacer clearfix"
+                        data-desktop={60}
+                        data-mobile={60}
+                        data-smobile={60}
+                      />
+                      <div className="themesflat-headings style-1 clearfix">
+                        <h2 className="heading">
+                          {lang.lang.pageHeaders.ourHotels}
+                        </h2>
+                        <div className="sep has-width w80 accent-bg margin-top-11 clearfix" />
+                      </div>
+                      <div className="row-iconbox bg-row-2">
+                        <div className="container">
+                          <div className="row">
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-1.jpeg"}
+                                name={lang.lang.hotels.taj}
+                                subName={lang.lang.hotels.subTaj}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.d}
+                                meals={lang.lang.general.c}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.b}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-2.jpeg"}
+                                name={lang.lang.hotels.hijra}
+                                subName={lang.lang.hotels.subHijra}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.c}
+                                meals={lang.lang.general.b}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.e}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-3.jpeg"}
+                                name={lang.lang.hotels.safwa}
+                                subName={lang.lang.hotels.subSafwa}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.e}
+                                meals={lang.lang.general.e}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.a}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-4.jpeg"}
+                                name={lang.lang.hotels.malak}
+                                subName={lang.lang.hotels.subMalak}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.h}
+                                meals={lang.lang.general.j}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.f}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-5.jpeg"}
+                                name={lang.lang.hotels.kady}
+                                subName={lang.lang.hotels.subKady}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.d}
+                                meals={lang.lang.general.a}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.f}
+                                lang={lang}
+                              />
+                            </div>
+                            {/* /.themesflat-testimonials */}
+                          </div>
+                        </div>
+                      </div>
+
                       <div
                         className="themesflat-spacer clearfix"
                         data-desktop={80}
                         data-mobile={60}
                         data-smobile={60}
                       />
+                      <div className="themesflat-headings style-1 clearfix">
+                        <h2 className="heading">
+                          {lang.lang.pageHeaders.allotmentHotels}
+                        </h2>
+                        <div className="sep has-width w80 accent-bg margin-top-11 clearfix" />
+                      </div>
+                      <div className="row-iconbox bg-row-2">
+                        <div className="container">
+                          <div className="row">
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-1.jpeg"}
+                                name={lang.lang.hotels.azka}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.d}
+                                meals={lang.lang.general.c}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.b}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-1.jpeg"}
+                                name={lang.lang.hotels.nesour}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.d}
+                                meals={lang.lang.general.c}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.b}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-1.jpeg"}
+                                name={lang.lang.hotels.mathaer}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.d}
+                                meals={lang.lang.general.c}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.b}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-1.jpeg"}
+                                name={lang.lang.hotels.fajr}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.d}
+                                meals={lang.lang.general.c}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.b}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-1.jpeg"}
+                                name={lang.lang.hotels.royal}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.d}
+                                meals={lang.lang.general.c}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.b}
+                                lang={lang}
+                              />
+                            </div>
+                            <div className="col-md-4">
+                              <HotelCard
+                                img={"assets/img/hotels/hotel-1.jpeg"}
+                                name={lang.lang.hotels.bolman}
+                                rating={
+                                  <div className="list-star">
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                    <i className="ion-star" />
+                                  </div>
+                                }
+                                nights={lang.lang.general.d}
+                                meals={lang.lang.general.c}
+                                travel={lang.lang.general.oneWay}
+                                pcr={lang.lang.general.b}
+                                lang={lang}
+                              />
+                            </div>
+                            {/* /.themesflat-testimonials */}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-12">
+                          <div
+                            className="themesflat-spacer clearfix"
+                            data-desktop={80}
+                            data-mobile={60}
+                            data-smobile={60}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            {state.headers.map((data, idx) => (
+              <Footer data={data} key={idx} />
+            ))}
+            {state.headers.map((data, idx) => (
+              <BottomBar data={data} key={idx} lang={lang} />
+            ))}
           </div>
         </div>
-
-        <Footer />
-        {state.headers.map((data, idx) => (
-          <BottomBar data={data} key={idx} />
-        ))}
-      </div>
-    </div>
+      )}
+    </LanguageConsumer>
   );
 };
 

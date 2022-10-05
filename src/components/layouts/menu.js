@@ -11,23 +11,13 @@ const menus = [
   },
   {
     id: 3,
-    name: "Services",
-    links: "/services",
-  },
-  {
-    id: 5,
     name: "Hotels",
     links: "/hotels",
   },
   {
-    id: 6,
-    name: "Blog",
-    links: "/blog",
-  },
-  {
-    id: 7,
+    id: 4,
     name: "Contact",
-    links: "/contact-01",
+    links: "/contact-us",
   },
 ];
 

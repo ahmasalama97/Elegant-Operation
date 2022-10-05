@@ -1,12 +1,12 @@
 import React from "react";
 
-const LeaderTeam = () => {
+const LeaderTeam = ({ lang }) => {
   let state = {
     lead: [
       {
         id: 1,
-        name: "Ahmed Khawaja",
-        position: "Executive Director",
+        name: lang.lang.leaders.director,
+        position: lang.lang.leaders.directorPos,
       },
     ],
   };
@@ -23,7 +23,7 @@ const LeaderTeam = () => {
               data-smobile={60}
             />
             <div className="themesflat-headings style-1 text-center clearfix">
-              <h2 className="heading">LEADERSHIP</h2>
+              <h2 className="heading">{lang.lang.pageHeaders.leadership}</h2>
               <div className="sep has-icon width-125 clearfix">
                 <div className="sep-icon">
                   <span className="sep-icon-before sep-center sep-solid" />
@@ -33,11 +33,6 @@ const LeaderTeam = () => {
                   <span className="sep-icon-after sep-center sep-solid" />
                 </div>
               </div>
-              <p className="sub-heading font-weight-400 text-808 max-width-680">
-                With us you will have the peace of mind knowing that your dream
-                home project is in the hands of a licensed fully insured
-                building company.
-              </p>
             </div>
             <div
               className="themesflat-spacer clearfix"

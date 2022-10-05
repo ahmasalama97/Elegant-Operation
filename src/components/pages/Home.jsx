@@ -1,30 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Slider, TitleHeading } from "../layouts/home/index";
-import { IconBox, SliderPopularPlaces } from "../layouts/home/index";
+import { IconBox, SliderPopularPlaces, Partner } from "../layouts/home/index";
 import { Header, Footer, TopBar, BottomBar } from "../layouts/general/index";
 import Hotels from "../layouts/home/Hotels";
+import { LanguageContext, LanguageConsumer } from "../../LanguageContext";
 
 const Home = () => {
+  const lang = useContext(LanguageContext);
   let content = {
     headers: [
       {
         id: 1,
         logoweb: "assets/img/logo-white-small.png",
-        names: "Home",
+        names: lang.lang.nav.home,
       },
     ],
     destinations: [
       {
         id: 1,
         classnames: "heading",
-        title: "POPULAR DESTINATIONS",
+        title: lang.lang.pageHeaders.destinations,
       },
     ],
     quarantine: [
       {
         id: 1,
         classnames: "heading text",
-        title: "QUARANTINE SERVICES",
+        title: lang.lang.pageHeaders.quarantine,
       },
     ],
   };
@@ -132,8 +134,29 @@ const Home = () => {
                               data-mobile={35}
                               data-smobile={35}
                             />
-                            <Hotels />
+                            <Hotels lang={lang} />
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row-project clearfix">
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-md-12">
+                          <div
+                            className="themesflat-spacer clearfix"
+                            data-desktop={60}
+                            data-mobile={60}
+                            data-smobile={60}
+                          />
+                          <div
+                            className="themesflat-spacer clearfix"
+                            data-desktop={40}
+                            data-mobile={35}
+                            data-smobile={35}
+                          />
+                          <Partner lang={lang} />
                         </div>
                       </div>
                     </div>
@@ -142,9 +165,11 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <Footer />
           {content.headers.map((data, idx) => (
-            <BottomBar data={data} key={idx} />
+            <Footer data={data} key={idx} />
+          ))}
+          {content.headers.map((data, idx) => (
+            <BottomBar data={data} key={idx} lang={lang} />
           ))}
         </div>
       </div>

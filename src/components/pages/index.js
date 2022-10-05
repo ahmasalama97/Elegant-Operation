@@ -9,8 +9,7 @@ import Hotels from "./Hotels";
 import PricePage from "./PricePage";
 import Blog from "./Blog";
 import BlogSingle from "./BlogSingle";
-import Contact01 from "./Contact01";
-import Contact02 from "./Contact02";
+import ContactUs from "./ContactUs";
 
 const routes = [
   { path: "/", component: Home },
@@ -24,8 +23,7 @@ const routes = [
   { path: "/page-pricing", component: PricePage },
   { path: "/blog", component: Blog },
   { path: "/blog-single", component: BlogSingle },
-  { path: "/contact-01", component: Contact01 },
-  { path: "/contact-02", component: Contact02 },
+  { path: "/contact-us", component: ContactUs },
 ];
 
 export default routes;

@@ -1,32 +1,32 @@
 import React from "react";
 
-const About = () => {
+const About = ({ lang }) => {
   let state = {
     inner: [
       {
         id: 1,
         icon: "fa fa-check-square",
-        text: "Tourist Visas",
+        text: lang.lang.general.visas,
       },
       {
         id: 2,
         icon: "fa fa-check-square",
-        text: "Hotel Reservations of All Levels",
+        text: lang.lang.general.hotelReservation,
       },
       {
         id: 3,
         icon: "fa fa-check-square",
-        text: "Means of Transportation for Internal Transportation",
+        text: lang.lang.general.transportations,
       },
       {
         id: 4,
         icon: "fa fa-check-square",
-        text: "Catering Services for Hotels",
+        text: lang.lang.general.hotelCatering,
       },
       {
         id: 5,
         icon: "fa fa-check-square",
-        text: "Institutional Quarantine Services",
+        text: lang.lang.general.institutionalQuarantine,
       },
     ],
   };
@@ -49,15 +49,15 @@ const About = () => {
             >
               <div className="themesflat-headings style-1 clearfix">
                 <h2 className="heading text-center">
-                  WELCOME TO ELEGANT OPERATION
+                  {lang.lang.pageHeaders.welcome}
                 </h2>
                 <div className="sep has-width w100 accent-bg margin-top-11 clearfix" />
                 <p className="sub-heading margin-top-30">
-                  A company specialized in managing and operating hotels,
-                  providing catering services and organizing tourist trips
-                  Umrah, Hajj and quarantine programs
+                  {lang.lang.about.companyDesc}
                 </p>
-                <p className="sub-heading margin-top-30">Our Services:</p>
+                <p className="sub-heading margin-top-30">
+                  {lang.lang.pageHeaders.ourServices}:
+                </p>
               </div>
               <div
                 className="themesflat-spacer clearfix"
@@ -70,10 +70,22 @@ const About = () => {
                   <div className="inner">
                     {state.inner.map((data) => (
                       <span className="item" key={data.id}>
-                        <span className="icon">
+                        <span
+                          className="icon"
+                          style={{
+                            right: lang.language === "english" ? "" : 0,
+                          }}
+                        >
                           <i className={data.icon} />
                         </span>
-                        <span className="text">{data.text}</span>
+                        <span
+                          className="text"
+                          style={{
+                            paddingRight: 20,
+                          }}
+                        >
+                          {data.text}
+                        </span>
                       </span>
                     ))}
                   </div>

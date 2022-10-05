@@ -12,6 +12,7 @@ const HotelCard = ({
   meals,
   travel,
   pcr,
+  lang,
 }) => {
   return (
     <div className="themesflat-testimonials style-2 align-center clearfix">
@@ -43,9 +44,9 @@ const HotelCard = ({
               <BedIcon style={{ fontSize: 30 }} />
               <h6
                 className="name"
-                style={{ alignSelf: "center", paddingLeft: 5 }}
+                style={{ alignSelf: "center", paddingLeft: 5, paddingRight: 5 }}
               >
-                {nights} Nights
+                {nights} {lang.lang.general.nights}
               </h6>
             </div>
 
@@ -56,9 +57,9 @@ const HotelCard = ({
               <FastfoodIcon style={{ fontSize: 30 }} />
               <h6
                 className="name"
-                style={{ alignSelf: "center", paddingLeft: 5 }}
+                style={{ alignSelf: "center", paddingLeft: 5, paddingRight: 5 }}
               >
-                {meals} Meals
+                {meals} {lang.lang.general.meals}
               </h6>
             </div>
 
@@ -69,9 +70,9 @@ const HotelCard = ({
               <DirectionsBusFilledIcon style={{ fontSize: 30 }} />
               <h6
                 className="name"
-                style={{ alignSelf: "center", paddingLeft: 5 }}
+                style={{ alignSelf: "center", paddingLeft: 5, paddingRight: 5 }}
               >
-                {travel} From Airport
+                {travel} {lang.lang.general.fromAirport}
               </h6>
             </div>
             <div
@@ -81,9 +82,9 @@ const HotelCard = ({
               <VaccinesIcon style={{ fontSize: 30 }} />
               <h6
                 className="name"
-                style={{ alignSelf: "center", paddingLeft: 5 }}
+                style={{ alignSelf: "center", paddingLeft: 5, paddingRight: 5 }}
               >
-                {pcr} PCR Tests
+                {pcr} {lang.lang.general.pcr}
               </h6>
             </div>
             {/* </div> */}
